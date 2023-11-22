@@ -1,0 +1,707 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Assignment-4: JavaScript</title>
+    <!--------------------------CSS------------------------->
+    <style>
+      body {
+        align-items: center;
+        justify-content: center;
+        font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+        background-color: #a8c2ff;
+      }
+
+      .container {
+        margin: 3%;
+        background-color: #f6f6f6f7;
+        padding: 3.5%;
+        align-self: center;
+        align-items: center;
+        justify-content: center;
+        border-radius: 10px;
+        box-shadow: 2px 2px 10px #7c78f5;
+      }
+
+      h1,
+      p {
+        text-align: center;
+        letter-spacing: 3px;
+      }
+
+      h1 {
+        text-transform: uppercase;
+      }
+
+      p {
+        margin: 5px;
+        font-weight: bold;
+        font-size: 18px;
+      }
+
+      .inputs_container {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .ans_3 {
+        border-radius: 5px;
+        border: 0.5px solid #a8c2ff;
+        box-shadow: 1px 2px 8px #a8c2ff;
+        letter-spacing: 3px;
+      }
+
+      .text-mod {
+        height: 30px;
+        width: 200px;
+        display: block;
+        margin: 30px;
+        text-align: center;
+        border-radius: 5px;
+        border: 0.5px solid #a8c2ff;
+        box-shadow: 1px 2px 8px #a8c2ff;
+      }
+
+      .btn {
+        width: 100px;
+        height: 37px;
+        margin: 30px;
+        text-align: center;
+        border-radius: 8px;
+        background-color: #04aa6d;
+        color: #fff;
+        font-weight: 550;
+        box-shadow: 2px 2px 5px #8dcfb4;
+        cursor: pointer;
+      }
+
+      .btn:hover {
+        background-color: #7c78f5;
+        color: #000;
+        transition: 0.5s;
+        font-weight: 550;
+      }
+
+      .text-footer {
+        text-align: center;
+        padding: 15px 0;
+        display: flex;
+        justify-content: center;
+        color: white;
+      }
+
+      .nav-bg {
+        background: rgba(27, 29, 61, 0.7);
+        background-size: cover;
+        background-blend-mode: darken;
+      }
+
+      .txt-name {
+        width: 90%;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        margin: auto;
+      }
+
+      input[type="text"]:focus {
+        background-color: #a8c2ff;
+        outline: solid #7c78f5;
+        transition: 0.5s;
+      }
+    </style>
+
+    <script>
+      //----------------------Q1----------------------
+
+      /*
+        function Encrypt() {
+            let name = document.getElementById("name1").value;
+            const alphaa = Array.from(Array(26)).map((e, i) => i + 97);
+            const alpha = alphaa.map((x) => String.fromCharCode(x));
+            let result = "";
+            for (let i = 0; i < name.length; i++) {
+                let x = name[i];
+                let ind = alpha.indexOf(x);
+                result += alpha[(ind + 13) % 26];
+            }
+            document.getElementById("sum1").value = result;
+            document.getElementById("sum1").style.background = "#a8c2ff";
+        }  
+        */
+
+      function Encrypt() {
+        nm = document.getElementById("name1").value;
+        var temp;
+        result = "";
+
+        for (let i = 0; i < nm.length; i++) {
+          if (nm.charAt(i) == "a" || nm.charAt(i) == "A") {
+            temp = "8";
+            result = result.concat(temp);
+          } else if (nm.charAt(i) == "b" || nm.charAt(i) == "B") {
+            temp = "A";
+            result = result.concat(temp);
+          } else if (nm.charAt(i) == "c" || nm.charAt(i) == "C") {
+            temp = "t";
+            result = result.concat(temp);
+          } else if (nm.charAt(i) == "d" || nm.charAt(i) == "D") {
+            temp = "Z";
+            result = result.concat(temp);
+          } else if (nm.charAt(i) == "e" || nm.charAt(i) == "E") {
+            temp = "3";
+            result = result.concat(temp);
+          } else if (nm.charAt(i) == "f" || nm.charAt(i) == "F") {
+            temp = "K";
+            result = result.concat(temp);
+          } else if (nm.charAt(i) == "g" || nm.charAt(i) == "G") {
+            temp = "4";
+            result = result.concat(temp);
+          } else if (nm.charAt(i) == "h" || nm.charAt(i) == "H") {
+            temp = "f";
+            result = result.concat(temp);
+          } else if (nm.charAt(i) == "i" || nm.charAt(i) == "I") {
+            temp = "9";
+            result = result.concat(temp);
+          } else if (nm.charAt(i) == "j" || nm.charAt(i) == "J") {
+            temp = "j";
+            result = result.concat(temp);
+          } else if (nm.charAt(i) == "k" || nm.charAt(i) == "K") {
+            temp = "N";
+            result = result.concat(temp);
+          } else if (nm.charAt(i) == "l" || nm.charAt(i) == "L") {
+            temp = "q";
+            result = result.concat(temp);
+          } else if (nm.charAt(i) == "m" || nm.charAt(i) == "M") {
+            temp = "L";
+            result = result.concat(temp);
+          } else if (nm.charAt(i) == "n" || nm.charAt(i) == "N") {
+            temp = "s";
+            result = result.concat(temp);
+          } else if (nm.charAt(i) == "o" || nm.charAt(i) == "O") {
+            temp = "0";
+            result = result.concat(temp);
+          } else if (nm.charAt(i) == "p" || nm.charAt(i) == "P") {
+            temp = "1";
+            result = result.concat(temp);
+          } else if (nm.charAt(i) == "q" || nm.charAt(i) == "Q") {
+            temp = "w";
+            result = result.concat(temp);
+          } else if (nm.charAt(i) == "r" || nm.charAt(i) == "R") {
+            temp = "e";
+            result = result.concat(temp);
+          } else if (nm.charAt(i) == "s" || nm.charAt(i) == "S") {
+            temp = "u";
+            result = result.concat(temp);
+          } else if (nm.charAt(i) == "t" || nm.charAt(i) == "T") {
+            temp = "m";
+            result = result.concat(temp);
+          } else if (nm.charAt(i) == "u" || nm.charAt(i) == "U") {
+            temp = "p";
+            result = result.concat(temp);
+          } else if (nm.charAt(i) == "v" || nm.charAt(i) == "V") {
+            temp = "h";
+            result = result.concat(temp);
+          } else if (nm.charAt(i) == "w" || nm.charAt(i) == "W") {
+            temp = "7";
+            result = result.concat(temp);
+          } else if (nm.charAt(i) == "x" || nm.charAt(i) == "X") {
+            temp = "1";
+            result = result.concat(temp);
+          } else if (nm.charAt(i) == "y" || nm.charAt(i) == "Y") {
+            temp = "O";
+            result = result.concat(temp);
+          } else if (nm.charAt(i) == "z" || nm.charAt(i) == "Z") {
+            temp = "I";
+            result = result.concat(temp);
+          }
+        }
+        document.getElementById("sum1").value = result;
+        document.getElementById("sum1").style.background = "#a8c2ff";
+      }
+
+      //----------------------Q2----------------------
+
+      function create() {
+        let name = document.getElementById("name2").value;
+        let number = document.getElementById("number2").value;
+        const alpha = ["@", ".", "#", "$", "%", "&", "_", "^"];
+        let result = "";
+        for (let i = 0; i < name.length && i < 4; i++) {
+          result += name[i];
+        }
+        result += alpha[Math.floor(Math.random() * alpha.length)];
+        for (let i = number.length - 3; i < number.length; i++)
+          result += number[i];
+        document.getElementById("sum2").value = result;
+        document.getElementById("sum2").style.background = "#a8c2ff";
+      }
+
+      //----------------------Q3----------------------
+      function chunk() {
+        nme = document.getElementById("name3").value;
+        numPieces = Number(document.getElementById("size3").value);
+        let n = nme.length;
+        if (numPieces >= n) {
+          return nme.split("");
+        }
+        let pieceLen = Math.floor(n / numPieces);
+        let pieces = [];
+        for (let i = 0; i < numPieces; i++) {
+          let start = i * pieceLen;
+          let end = (i + 1) * pieceLen;
+          if (i === numPieces - 1) {
+            end = n;
+          }
+          pieces.push(nme.substring(start, end));
+        }
+        document.getElementById("sum3").style.background = "#a8c2ff";
+        document.getElementById("sum3").innerHTML =
+          '"' + numPieces + '"chunked pieces are:';
+        for (let i = 0; i < pieces.length; i++) {
+          document.getElementById("sum3").innerHTML +=
+            "<br> " + (i + 1) + "&#8594;" + pieces[i]; //&#8594; arrow mark code->
+        }
+      }
+
+      //----------------------Q4----------------------
+      function occurrence() {
+        let s = document.getElementById("name4").value;
+        var myMap = new Map();
+        for (var i = 0; i < s.length; i++) {
+          var key = s[i];
+          if (myMap.has(key)) {
+            let b = myMap.get(key).val;
+
+            myMap.set(key, myMap.get(key) + 1);
+          } else {
+            myMap.set(key, 1);
+          }
+        }
+        let result = "";
+        for (var [key, val] of myMap) {
+          result += key + " = " + val;
+          result += ", ";
+        }
+        document.getElementById("sum4").innerHTML = result;
+        document.getElementById("sum4").style.background = "#a8c2ff";
+      }
+
+      //----------------------Q5----------------------
+      function Possible() {
+        st = String(document.getElementById("name5").value);
+        document.getElementById("sum5").style.background = "#a8c2ff";
+        Result = document.getElementById("sum5");
+        const stringPermutations = (str) => {
+          if (str.length <= 2)
+            return str.length === 2 ? [str, str[1] + str[0]] : [str];
+          return str
+            .split("")
+            .reduce(
+              (acc, letter, i) =>
+                acc.concat(
+                  stringPermutations(str.slice(0, i) + str.slice(i + 1)).map(
+                    (val) => letter + val
+                  )
+                ),
+              []
+            );
+        };
+        res = stringPermutations(st);
+        let c = [];
+        let d = [];
+        let real = [];
+        for (i = 0; i < st.length; i++) {
+          if (
+            st[i].includes("a") ||
+            st[i].includes("e") ||
+            st[i].includes("i") ||
+            st[i].includes("o") ||
+            st[i].includes("u")
+          ) {
+            c.push(i);
+          }
+        }
+
+        for (i = 0; i < res.length; i++) {
+          d.push(res[i]);
+          for (j = 0; j < c.length; j++) {
+            if (res[i][c[j]] != st[c[j]]) {
+              d.pop();
+              break;
+            }
+          }
+        }
+        let s = new Set();
+        for (let i = 0; i < d.length; i++) {
+          s.add(d[i]);
+        }
+        const myArr = Array.from(s);
+        // document.getElementById("sum5").value = myArr;
+        document.getElementById("sum5").innerHTML = myArr;
+      }
+
+      // Q6
+      function longestPalindrome(s) {
+        let ll = 0,
+          rr = 0;
+
+        for (let i = 0; i < s.length; i++)
+          for (let j of [i, i + 1])
+            for (l = i, r = j; s[l] && s[l] === s[r]; l--, r++)
+              [ll, rr] = r - l + 1 > rr - ll + 1 ? [l, r] : [ll, rr];
+
+        return s.substring(ll, rr + 1);
+      }
+      function find1() {
+        let name = document.getElementById("name6").value;
+        let result = longestPalindrome(name);
+        document.getElementById("sum6").value = result;
+        document.getElementById("sum6").style.background = "#a8c2ff";
+      }
+
+      //----------------------Q7----------------------
+      function longestSubstirng(s) {
+        let left = 0;
+        let right = 0;
+        let ans = 0;
+        let set = new Set();
+        for (right = 0; right < s.length; right++) {
+          while (set.has(s[right])) {
+            set.delete(s[left]);
+            left++;
+          }
+          set.add(s[right]);
+          ans = Math.max(ans, right - left + 1);
+        }
+        return ans;
+      }
+      function find2() {
+        let name = document.getElementById("name7").value;
+        let result = longestSubstirng(name);
+        document.getElementById("sum7").value = result;
+        document.getElementById("sum7").style.background = "#a8c2ff";
+      }
+
+      //----------------------Q8----------------------
+      function longestSubstirng(s) {
+        let left = 0;
+        let right = 0;
+        let ans = 0;
+        let set = new Set();
+        for (right = 0; right < s.length; right++) {
+          while (set.has(s[right])) {
+            set.delete(s[left]);
+            left++;
+          }
+          set.add(s[right]);
+          ans = Math.max(ans, right - left + 1);
+        }
+        return ans;
+      }
+
+      function Max_Occur_Str() {
+        let str = document.getElementById("name8").value;
+        const buildSubstrings = (str = "") => {
+          let i, j;
+          const res = [];
+          for (i = 0; i < str.length; i++) {
+            for (j = i + 1; j < str.length + 1; j++) {
+              res.push(str.slice(i, j));
+            }
+          }
+          return res;
+        };
+        let temp = buildSubstrings(str);
+        let mp = new Map();
+
+        for (let i = 0; i < temp.length; i++) {
+          if (mp.has(temp[i])) mp.set(temp[i], mp.get(temp[i]) + 1);
+          else mp.set(temp[i], 1);
+        }
+        var ans = "",
+          cnt = 0;
+        for (var [key, value] of mp) {
+          // console.log(cnt);
+          if (value >= cnt && ans.length < key.length) {
+            //console.log("df");
+            ans = key;
+            cnt = value;
+          }
+          //console.log(`${key} = ${value}`);
+        }
+        document.getElementById("sum8").value = ans;
+        document.getElementById("sum8").style.background = "#a8c2ff";
+      }
+
+      //----------------------Q9----------------------
+      function reverse(s) {
+        return s.split("").reverse().join("");
+      }
+      function swapping() {
+        string2 = document.getElementById("name9").value;
+        sf = "";
+        lt = "";
+        for (let i = 0; i < 2; i++) {
+          sf = sf.concat(string2.charAt(i));
+        }
+        for (let i = string2.length - 1; i >= string2.length - 2; i--) {
+          lt = lt.concat(string2.charAt(i));
+        }
+        lt = reverse(lt);
+        temp = lt;
+        result = string2.replace(sf, temp);
+        tempo = result.slice(0, result.length - 2);
+        tempo = tempo.concat(sf);
+        document.getElementById("sum9").value = tempo;
+        document.getElementById("sum9").style.background = "#a8c2ff";
+      }
+    </script>
+  </head>
+
+  <body>
+    <header class="nav-bg">
+      <p class="text-footer">IWT Assignment 4</p>
+    </header>
+    <!-- ------------1------------ -->
+    <div class="container">
+      &#9312;
+      <!-- Use for giving a number inside a circle -->
+      <h1>Name Encrypter</h1>
+      <p>Creating code word for your name</p>
+      <div class="inputs_container">
+        <input
+          id="name1"
+          type="text"
+          placeholder="Enter your name"
+          class="text-mod"
+        />
+        <input type="button" onclick="Encrypt()" class="btn" value="Encrypt" />
+        <p>=</p>
+        <input
+          class="text-mod"
+          id="sum1"
+          type="text"
+          placeholder="Result"
+          readonly
+        />
+      </div>
+    </div>
+
+    <!-- ------------2------------ -->
+    <div class="container">
+      &#9313;
+      <h1>Password Generator</h1>
+      <p>Creating a simple password for you</p>
+      <div class="inputs_container">
+        <input
+          id="name2"
+          type="text"
+          placeholder="Enter your name"
+          class="text-mod"
+        />
+        <input
+          id="number2"
+          type="text"
+          placeholder="Enter your mobile number"
+          class="text-mod"
+        />
+        <input type="button" onclick="create()" class="btn" value="Generate" />
+        <p>=</p>
+        <input
+          class="text-mod"
+          id="sum2"
+          type="text"
+          placeholder="Result"
+          readonly
+        />
+      </div>
+    </div>
+    <!-- ------------3------------ -->
+    <div class="container">
+      &#9314;
+      <h1>Chunk</h1>
+      <p>Your Name into specific pieces</p>
+      <div class="inputs_container">
+        <input
+          id="name3"
+          type="text"
+          placeholder="Enter Your Name"
+          class="text-mod"
+        />
+        <input
+          id="size3"
+          type="text"
+          placeholder="Enter the number of pieces"
+          class="text-mod"
+        />
+        <input type="button" onclick="chunk()" class="btn" value="Chunk" />
+        <p>=</p>
+        <div class="ans_3" style="padding: 6px">
+          Result
+          <p id="sum3" style="text-align: left"></p>
+        </div>
+      </div>
+    </div>
+
+    <!-- ------------4------------ -->
+    <div class="container">
+      &#9315;
+      <h1>occurrence</h1>
+      <p>Of each letter in your name</p>
+      <div class="inputs_container">
+        <input
+          id="name4"
+          type="text"
+          placeholder="Enter Your Name"
+          class="text-mod"
+        />
+        <input type="button" onclick="occurrence()" class="btn" value="Find" />
+        <!-- <p>=</p><input class="text-mod" id="sum4" type="text" placeholder="Result" readonly /> -->
+        <p>=</p>
+        <div class="ans_3" style="padding: 4px">
+          Result
+          <p id="sum4" style="text-align: left"></p>
+        </div>
+      </div>
+    </div>
+
+    <!-- ------------5------------ -->
+    <div class="container">
+      &#9316;
+      <h1>Generate All Possible Word</h1>
+      <p>Of your first name without changing the vowel position</p>
+      <div class="inputs_container">
+        <input
+          id="name5"
+          type="text"
+          placeholder="Enter your First Name"
+          class="text-mod"
+        />
+        <input
+          type="button"
+          onclick="Possible()"
+          class="btn"
+          value="Generate"
+        />
+        <p>=</p>
+        <div class="ans_3" style="padding: 6px">
+          Result
+          <p id="sum5" style="text-align: left"></p>
+        </div>
+      </div>
+    </div>
+
+    <!-- ------------6------------ -->
+    <div class="container">
+      &#9317;
+      <h1>Longest Palindromic Substring</h1>
+      <p>Within the first name</p>
+      <div class="inputs_container">
+        <input
+          id="name6"
+          type="text"
+          placeholder="Enter your first name"
+          class="text-mod"
+        />
+        <input type="button" onclick="find1()" class="btn" value="Find" />
+        <p>=</p>
+        <input
+          class="text-mod"
+          id="sum6"
+          type="text"
+          placeholder="Result"
+          readonly
+        />
+      </div>
+    </div>
+
+    <!-- ------------7------------ -->
+    <div class="container">
+      &#9318;
+      <h1>Length of Longest Substring</h1>
+      <p>Without Repeating characters</p>
+      <div class="inputs_container">
+        <input
+          id="name7"
+          type="text"
+          placeholder="Enter A String"
+          class="text-mod"
+        />
+        <input type="button" onclick="find2()" class="btn" value="Find" />
+        <p>=</p>
+        <input
+          class="text-mod"
+          id="sum7"
+          type="text"
+          placeholder="Result"
+          readonly
+        />
+      </div>
+    </div>
+    <!-- ------------8------------ -->
+    <div class="container">
+      &#9319;
+      <h1>Maximum Occurring Substring</h1>
+      <p>In a String</p>
+      <div class="inputs_container">
+        <input
+          id="name8"
+          type="text"
+          placeholder="Enter A String"
+          class="text-mod"
+        />
+        <input
+          type="button"
+          onclick="Max_Occur_Str()"
+          class="btn"
+          value="Find"
+        />
+        <p>=</p>
+        <input
+          class="text-mod"
+          id="sum8"
+          type="text"
+          placeholder="Result"
+          readonly
+        />
+      </div>
+    </div>
+    <!-- ------------9------------ -->
+    <div class="container">
+      &#9320;
+      <h1>Generate a New String</h1>
+      <p>
+        From a given string by Swapping the second first and last two characters
+      </p>
+      <div class="inputs_container">
+        <input
+          id="name9"
+          type="text"
+          placeholder="Enter A String"
+          class="text-mod"
+        />
+        <input
+          type="button"
+          onclick="swapping()"
+          class="btn"
+          value="Generate"
+        />
+        <p>=</p>
+        <input
+          class="text-mod"
+          id="sum9"
+          type="text"
+          placeholder="Result"
+          readonly
+        />
+      </div>
+    </div>
+    <footer class="nav-bg">
+      <p class="text-footer"><sup>©</sup>Prepaired by - Biku</p>
+    </footer>
+  </body>
+</html>

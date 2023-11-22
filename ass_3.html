@@ -1,0 +1,566 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link
+      href="https://fonts.googleapis.com/css?family=Roboto"
+      rel="stylesheet"
+    />
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Assignment-3: JavaScript task</title>
+    <!--------------------------CSS------------------------->
+    <style>
+      body {
+        align-items: center;
+        justify-content: center;
+        font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+        background-color: #a8c2ff;
+      }
+
+      .container {
+        margin: 3%;
+        background-color: #f6f6f6f7;
+        padding: 3.5%;
+        align-self: center;
+        align-items: center;
+        justify-content: center;
+        border-radius: 10px;
+        box-shadow: 2px 2px 10px #7c78f5;
+      }
+
+      h1,
+      p {
+        text-align: center;
+        letter-spacing: 3px;
+      }
+
+      h1 {
+        text-transform: uppercase;
+      }
+
+      p {
+        margin: 5px;
+        font-weight: bold;
+        font-size: 18px;
+      }
+
+      .inputs_container {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .text-mod {
+        height: 30px;
+        width: 200px;
+        display: block;
+        margin: 30px;
+        text-align: center;
+        border-radius: 5px;
+        border: 0.5px solid #a8c2ff;
+        box-shadow: 1px 2px 8px #a8c2ff;
+      }
+
+      .btn {
+        width: 100px;
+        height: 37px;
+        margin: 30px;
+        text-align: center;
+        border-radius: 8px;
+        background-color: #04aa6d;
+        color: #fff;
+        font-weight: 550;
+        box-shadow: 2px 2px 5px #8dcfb4;
+        cursor: pointer;
+      }
+
+      .btn:hover {
+        background-color: #7c78f5;
+        color: #000;
+        transition: 0.5s;
+        font-weight: 550;
+      }
+
+      .text-footer {
+        text-align: center;
+        padding: 15px 0;
+        display: flex;
+        justify-content: center;
+        color: white;
+      }
+
+      .nav-bg {
+        background: rgba(27, 29, 61, 0.7);
+        background-size: cover;
+        background-blend-mode: darken;
+      }
+
+      .txt-name {
+        width: 90%;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        margin: auto;
+      }
+
+      #myprogress {
+        margin-left: 10px;
+        width: 70%;
+        background: #ccc;
+      }
+
+      #mybar,
+      #mybar2,
+      #mybar3,
+      #mybar4 {
+        width: 1%;
+        color: white;
+        text-align: center;
+        line-height: 22px;
+      }
+
+      #mybar {
+        background-color: #fc3e1c;
+      }
+
+      #mybar2 {
+        background-color: #fc851c;
+      }
+
+      #mybar3 {
+        background-color: #c4b506;
+      }
+
+      #mybar4 {
+        background-color: #04aa6d;
+      }
+
+      pre {
+        font-size: 7px;
+      }
+
+      input[type="text"]:focus {
+        background-color: #a8c2ff;
+        outline: solid #7c78f5;
+        transition: 0.5s;
+      }
+    </style>
+
+    <!------------------------JavaScript------------------------->
+    <script>
+      //  q1
+      function Add() {
+        var first = parseInt(document.getElementById("f1").value);
+        var second = parseInt(document.getElementById("s1").value);
+        // console.log(f1);
+        document.getElementById("sum1").value = first + second;
+        document.getElementById("sum1").style.background = "#a8c2ff";
+      }
+
+      //  q2
+      function Check() {
+        var first = parseInt(document.getElementById("f2").value);
+        document.getElementById("sum2").value = first & 1 ? "odd" : "even";
+        document.getElementById("sum2").style.background = "#a8c2ff";
+      }
+
+      //  q3
+      function fact(n) {
+        if (n == 1 || n == 0) return 1;
+        return fact(n - 1) * n;
+      }
+      function factorial() {
+        var first = parseInt(document.getElementById("f3").value);
+        document.getElementById("sum3").value = fact(first);
+        document.getElementById("sum3").style.background = "#a8c2ff";
+      }
+
+      //  q4
+      function char_count() {
+        var first = document.getElementById("f4").value;
+        document.getElementById("sum4").value = first.trim().length;
+        document.getElementById("sum4").style.background = "#a8c2ff";
+      }
+
+      //  q5
+      function num_check() {
+        // var first = document.getElementById("f5").value;
+        // var regex = /[^a-z]/gi;
+        // var bool = first.length - first.replace(regex, "").length;
+        // document.getElementById("sum5").value = bool ? "Yes" : "No";
+        // document.getElementById("sum5").style.background = "#a8c2ff";
+
+        // or
+        var first = document.getElementById("f5").value;
+        var count = "NO";
+        for (var i = 0; i < first.length; i++) {
+          if (first[i] >= "0" && first[i] <= "9") {
+            count = "YES";
+            break;
+          }
+        }
+        document.getElementById("sum5").value = count;
+        document.getElementById("sum5").style.background = "#a8c2ff";
+      }
+
+      //  q6
+      function diff() {
+        var first = document.getElementById("f6").value;
+        let fname = 0,
+          lname = -1,
+          bool = 0;
+        for (let i = 0; i < first.length; i++) {
+          if (first[i] == " ") bool++;
+          if (bool) lname++;
+          else fname++;
+        }
+        if (lname < 1) lname = fname;
+        document.getElementById("sum6").value = Math.abs(lname - fname);
+        document.getElementById("sum6").style.background = "#a8c2ff";
+      }
+
+      //  q7
+      function log_cal() {
+        var first = document.getElementById("f7").value;
+        var c = Math.log2(first);
+        document.getElementById("sum7").value = c;
+        document.getElementById("sum7").style.background = "#a8c2ff";
+      }
+
+      //  q8
+      const progress_move = () => {
+        var elem = document.getElementById("mybar");
+        var a = parseInt(document.getElementById("f8").value);
+        //var b = parseInt(document.getElementById('s8').value);
+        // var c = parseInt(document.getElementById('t8').value);
+        //ans = ((a + b + c) * 100) / 300;
+
+        var width = 1;
+        var id = setInterval(frame, 10);
+        function frame() {
+          // if (width >= 100) {
+          if (width >= a) {
+            clearInterval(id);
+          } else {
+            width++;
+            elem.style.width = width + "%";
+            document.getElementById("in_value").innerHTML = width + "%";
+          }
+        }
+      };
+
+      const progress_move2 = () => {
+        var elem = document.getElementById("mybar2");
+        var b = parseInt(document.getElementById("s8").value);
+        var width = 1;
+        var id = setInterval(frame, 10);
+        function frame() {
+          if (width >= b) {
+            clearInterval(id);
+          } else {
+            width++;
+            elem.style.width = width + "%";
+            document.getElementById("in_value2").innerHTML = width + "%";
+          }
+        }
+      };
+      const progress_move3 = () => {
+        var elem = document.getElementById("mybar3");
+        var b = parseInt(document.getElementById("t8").value);
+        var width = 1;
+        var id = setInterval(frame, 10);
+        function frame() {
+          // if (width >= 100) {
+          if (width >= b) {
+            clearInterval(id);
+          } else {
+            width++;
+            elem.style.width = width + "%";
+            document.getElementById("in_value3").innerHTML = width + "%";
+          }
+        }
+      };
+      const progress_move4 = () => {
+        var elem = document.getElementById("mybar4");
+
+        var a = parseInt(document.getElementById("f8").value);
+        var b = parseInt(document.getElementById("s8").value);
+        var c = parseInt(document.getElementById("t8").value);
+        ans = ((a + b + c) * 100) / 300;
+
+        var width = 1;
+        var id = setInterval(frame, 10);
+        function frame() {
+          // if (width >= 100) {
+          if (width >= ans) {
+            clearInterval(id);
+          } else {
+            width++;
+            elem.style.width = width + "%";
+            document.getElementById("in_value4").innerHTML = width + "%";
+          }
+        }
+      };
+    </script>
+  </head>
+  <!-----------------------------HTML----------------------------->
+
+  <body>
+    <!-- 1 -->
+    <div class="container">
+      <h1>Add Two Numbers</h1>
+      <div class="inputs_container">
+        <input
+          id="f1"
+          type="text"
+          placeholder="Enter First Number"
+          class="text-mod"
+        />
+        <p>+</p>
+        <input
+          id="s1"
+          type="text"
+          placeholder="Enter Second Number"
+          class="text-mod"
+        />
+        <input type="button" onclick="Add()" class="btn" value="Calculate" />
+        <p>=</p>
+        <input
+          class="text-mod"
+          id="sum1"
+          type="text"
+          placeholder="Result"
+          readonly
+        />
+      </div>
+    </div>
+
+    <!-- 2 -->
+    <div class="container">
+      <h1>Check Even / Odd</h1>
+      <div class="inputs_container">
+        <input
+          id="f2"
+          type="text"
+          placeholder="Enter a Number"
+          class="text-mod"
+        />
+        <input type="button" onclick="Check()" class="btn" value="Check" />
+        <p>=</p>
+        <input
+          class="text-mod"
+          id="sum2"
+          type="text"
+          placeholder="Result"
+          readonly
+        />
+      </div>
+    </div>
+
+    <!-- 3 -->
+    <div class="container">
+      <h1>Factorial</h1>
+      <p>Of A Number</p>
+      <div class="inputs_container">
+        <input
+          id="f3"
+          type="text"
+          placeholder="Enter a Number"
+          class="text-mod"
+        />
+        <input
+          type="button"
+          onclick="factorial()"
+          class="btn"
+          value="Calculate"
+        />
+        <p>=</p>
+        <input
+          class="text-mod"
+          id="sum3"
+          type="text"
+          placeholder="Result"
+          readonly
+        />
+      </div>
+    </div>
+
+    <!-- 4 -->
+    <div class="container">
+      <h1>Count</h1>
+      <p>Number of Characters</p>
+      <div class="inputs_container">
+        <input
+          id="f4"
+          type="text"
+          placeholder="Enter Your Name"
+          class="text-mod"
+        />
+        <input type="button" onclick="char_count()" class="btn" value="Count" />
+        <p>=</p>
+        <input
+          class="text-mod"
+          id="sum4"
+          type="text"
+          placeholder="Result"
+          readonly
+        />
+      </div>
+    </div>
+
+    <!-- 5 -->
+    <div class="container">
+      <h1>Check Name</h1>
+      <p>Containing Any digit or Not</p>
+      <div class="inputs_container">
+        <input
+          id="f5"
+          type="text"
+          placeholder="Enter Your Name"
+          class="text-mod"
+        />
+        <input type="button" onclick="num_check()" class="btn" value="Check" />
+        <p>=</p>
+        <input
+          class="text-mod"
+          id="sum5"
+          type="text"
+          placeholder="Result"
+          readonly
+        />
+      </div>
+    </div>
+
+    <!-- 6 -->
+    <div class="container">
+      <h1>Character Difference</h1>
+      <p>Between First name and Last Name</p>
+      <div class="inputs_container">
+        <input
+          id="f6"
+          type="text"
+          placeholder="Enter Your Name"
+          class="text-mod"
+        />
+        <input type="button" onclick="diff()" class="btn" value="Count" />
+        <p>=</p>
+        <input
+          class="text-mod"
+          id="sum6"
+          type="text"
+          placeholder="Result"
+          readonly
+        />
+      </div>
+    </div>
+
+    <!-- 7 -->
+    <div class="container">
+      <h1>Logarithmic Calculator</h1>
+      <p>log2</p>
+      <div class="inputs_container">
+        <input
+          id="f7"
+          type="text"
+          placeholder="Enter a Number"
+          class="text-mod"
+        />
+        <input
+          type="button"
+          onclick="log_cal()"
+          class="btn"
+          value="Calculate"
+        />
+        <p>=</p>
+        <input
+          class="text-mod"
+          id="sum7"
+          type="text"
+          placeholder="Result"
+          readonly
+        />
+      </div>
+    </div>
+
+    <!-- 8 -->
+    <div class="container">
+      <h1>Progress Bar</h1>
+      <p>Of Educational Career</p>
+      <div class="inputs_container">
+        <input
+          id="f8"
+          type="text"
+          placeholder="Enter B-Tech Percentage"
+          class="text-mod"
+        />
+        <p>+</p>
+        <input
+          id="s8"
+          type="text"
+          placeholder="Enter 12th Percentage"
+          class="text-mod"
+        />
+        <p>+</p>
+        <input
+          id="t8"
+          type="text"
+          placeholder="Enter 10th Percentage"
+          class="text-mod"
+        />
+        <input
+          type="button"
+          onclick="progress_move();progress_move2();progress_move3();progress_move4()"
+          class="btn"
+          value="Show Progress"
+        />
+      </div>
+
+      <div class="txt-name">
+        B-Tech
+        <pre></pre>
+        :
+        <div id="myprogress">
+          <div id="mybar">
+            <span id="in_value">1%</span>
+          </div>
+        </div>
+      </div>
+      <br />
+      <div class="txt-name">
+        12th
+        <pre></pre>
+        :
+        <div id="myprogress">
+          <div id="mybar2">
+            <span id="in_value2">1%</span>
+          </div>
+        </div>
+      </div>
+      <br />
+      <div class="txt-name">
+        10th
+        <pre></pre>
+        :
+        <div id="myprogress">
+          <div id="mybar3">
+            <span id="in_value3">1%</span>
+          </div>
+        </div>
+      </div>
+      <br />
+      <div class="txt-name">
+        Overall:
+
+        <div id="myprogress">
+          <div id="mybar4">
+            <span id="in_value4">1%</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <footer class="nav-bg">
+      <p class="text-footer"><sup>©</sup>Prepaired by - Biku</p>
+    </footer>
+  </body>
+</html>
